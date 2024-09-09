@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login de Funcionário</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <div class="login-box">
             <h2>Login de funcionário</h2>
+            
             <?php
-            // Mensagem de erro ou sucesso
             if (isset($_POST['submit'])) {
-                require 'login.php'; // Chama o script de login
+                $usuario = $_POST['numero-funcionario'];
+                $senha = $_POST['senha'];
+            
+                // Simulação de verificação de login
+                if ($usuario === 'admin' && $senha === '1234') {
+                    echo "<p style='color:green;'>Login bem-sucedido!</p>";
+                } else {
+                    echo "<p style='color:red;'>Número de funcionário ou senha incorretos!</p>";
+                }
             }
             ?>
+
             <form action="index.php" method="POST">
                 <label for="numero-funcionario">Informe suas credenciais (Nº F)</label>
                 <input type="text" id="numero-funcionario" name="numero-funcionario" required>
@@ -31,7 +40,6 @@
         </div>
         <div class="right-box">
             <p>MEU BANCO DE DADOS!</p>
-            <p>HELLO WORLD!</p>
         </div>
     </div>
 </body>
